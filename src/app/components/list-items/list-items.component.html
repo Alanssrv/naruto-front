@@ -1,5 +1,5 @@
-@for (item of getCharacters()?.values(); track $index) {
-    <div class="list-items">
+<div class="list-items">
+    @for (item of getCharacters()?.values(); track $index) {
         <a href="" class="character">
             <section class="character__status">
                 <h2>{{ item.name }}</h2>
@@ -11,19 +11,21 @@
             
             <section class="character__image">
                 <img
+                    [@fade-in]
                     height="350rem"
                     [src]="item.images[0].image_url"
                     [alt]="item.name">
             </section>
         </a>
-    </div>
-} @empty {
-    <div class="loading">
-        <p>Carregando personagens</p>
-        <img
-            src="assets/icons/narutomaki.png"
-            alt="Ícone de carregamento - Narutomaki"
-            height="28px"
-        >
-    </div>
-}
+    } @empty {
+        <div class="loading">
+            <p>Carregando personagens</p>
+            <img
+                [@rotate-icon]
+                src="assets/icons/narutomaki.png"
+                alt="Ícone de carregamento - Narutomaki"
+                height="28px"
+            >
+        </div>
+    }
+</div>

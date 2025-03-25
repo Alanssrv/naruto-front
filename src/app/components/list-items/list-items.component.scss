@@ -5,6 +5,52 @@
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 50px;
+
+        .character {
+            position: relative;
+            padding: 30px;
+    
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+    
+            width: 40%;
+            height: 250px;
+    
+            border-radius: 10px;
+    
+            text-decoration: none;
+            color: var(--cinza-claro);
+            background: var(--azul-sereno);
+    
+            &__status {
+                h2 {
+                    font-size: 22px;
+                    font-style: italic;
+                    font-weight: 700;
+                }
+    
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 20px;
+    
+                    gap: 7px;
+                    li {
+                        font-weight: 300;
+                        font-size: 14px;
+                    }
+                }
+            }
+    
+            &__image {
+                opacity: 1;
+                position: absolute;
+                right: -30px;
+                bottom: -30px;
+            }
+        }
+    
     }
 
     .loading {
@@ -18,50 +64,6 @@
             font-size: 24px;
             font-weight: 300;
             color: var(--cinza-claro);
-        }
-    }
-
-    .character {
-        position: relative;
-        padding: 30px;
-
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-
-        width: 40%;
-        height: 250px;
-
-        border-radius: 10px;
-
-        text-decoration: none;
-        color: var(--cinza-claro);
-        background: var(--azul-sereno);
-
-        &__status {
-            h2 {
-                font-size: 22px;
-                font-style: italic;
-                font-weight: 700;
-            }
-
-            ul {
-                display: flex;
-                flex-direction: column;
-                margin-top: 20px;
-
-                gap: 7px;
-                li {
-                    font-weight: 300;
-                    font-size: 14px;
-                }
-            }
-        }
-
-        &__image {
-            position: absolute;
-            right: -30px;
-            bottom: -30px;
         }
     }
 }
