@@ -7,6 +7,20 @@
         gap: 50px;
     }
 
+    .loading {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        gap: 10px;
+
+        p {
+            margin: 20px 0;
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--cinza-claro);
+        }
+    }
+
     .character {
         position: relative;
         padding: 30px;

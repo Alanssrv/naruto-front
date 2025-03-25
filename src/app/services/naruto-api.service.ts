@@ -25,18 +25,4 @@ export class NarutoApiService {
       tap(response=>console.log(response))
     );
   }
-
-  #setCharacterById = signal<NarutoCharacter | null>(null);
-  get getCharactersById() {
-    return this.#setCharacters.asReadonly();
-  }
-
-  public HttpGetCharacterById$(id: number) : Observable<NarutoCharacter> {
-    this.#setCharacterById.set(null);
-
-    return this.#httpClient.get<NarutoCharacter>(`${this.#url}/${id}`).pipe(
-      tap((response: NarutoCharacter) => this.#setCharacterById.set(response)),
-      tap(response=>console.log(response))
-    );
-  }
 }
