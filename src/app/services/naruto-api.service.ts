@@ -22,7 +22,6 @@ export class NarutoApiService {
 
     return this.#httpClient.get<NarutoCharacter[]>(this.#url).pipe(
       tap((response: NarutoCharacter[]) => this.#setCharacters.set(response)),
-      tap(response=>console.log(response))
     );
   }
 }

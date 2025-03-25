@@ -1,31 +1,36 @@
-<div class="list-items">
-    @for (item of getCharacters()?.values(); track $index) {
-        <a href="" class="character">
-            <section class="character__status">
-                <h2>{{ item.name }}</h2>
-                <ul>
-                    <li>{{ item.rank }}</li>
-                    <li>{{ item.village.name.split(' ')[0] }}</li>
-                </ul>
-            </section>
-            
-            <section class="character__image">
-                <img
+<div class="container">
+    <app-search (emmitSearch)="getSearch($event)"/>
+    
+    <div class="list-items">
+        @for (item of characters()?.values(); track $index) {
+            <a href="" class="character">
+                <section class="character__status">
+                    <h2>{{ item.name }}</h2>
+                    <ul>
+                        <li>Rank: {{ item.rank }}</li>
+                        <li>Vila: {{ item.village.name }}</li>
+                        <li>Poder: {{ item.power }}</li>
+                    </ul>
+                </section>
+                
+                <section class="character__image">
+                    <img
                     [@fade-in]
                     height="350rem"
                     [src]="item.images[0].image_url"
                     [alt]="item.name">
-            </section>
-        </a>
-    } @empty {
-        <div class="loading">
-            <p>Carregando personagens</p>
-            <img
+                </section>
+            </a>
+        } @empty {
+            <div class="loading">
+                <p>Carregando personagens</p>
+                <img
                 [@rotate-icon]
                 src="assets/icons/narutomaki.png"
                 alt="Ícone de carregamento - Narutomaki"
                 height="28px"
-            >
-        </div>
-    }
+                >
+            </div>
+        }
+    </div>
 </div>
