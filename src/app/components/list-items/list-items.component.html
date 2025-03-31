@@ -3,7 +3,7 @@
     
     <div class="list-items">
         @for (item of characters()?.values(); track $index) {
-            <a href="" class="character">
+            <a [routerLink]="['detail', item.id]" class="character">
                 <section class="character__status">
                     <h2>{{ item.name }}</h2>
                     <ul>

@@ -3,10 +3,11 @@ import { NarutoApiService } from '../../services/naruto-api.service';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { SearchComponent } from "../search/search.component";
 import { NarutoCharacter } from '../../interfaces/naturo-character.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list-items',
-  imports: [SearchComponent],
+  imports: [SearchComponent, RouterLink],
   templateUrl: './list-items.component.html',
   styleUrl: './list-items.component.scss',
   animations: [

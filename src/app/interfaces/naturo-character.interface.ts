@@ -6,8 +6,8 @@ export interface NarutoCharacter {
     profile_image: string;
     summary: string;
     village: Village;
-    father: Parent;
-    mother: Parent;
+    father: Parent | null;
+    mother: Parent | null;
     jutsus: Jutsu[];
     images: Image[];
 }

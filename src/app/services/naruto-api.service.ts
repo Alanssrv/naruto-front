@@ -24,4 +24,15 @@ export class NarutoApiService {
       tap((response: NarutoCharacter[]) => this.#setCharacters.set(response)),
     );
   }
+
+  #setCharacter = signal<NarutoCharacter | null>(null);
+  get getCharacter() {
+    return this.#setCharacter.asReadonly();
+  }
+  public HttpGetCharacterById$(id: string): Observable<NarutoCharacter> {
+    this.#setCharacter.set(null);
+    return this.#httpClient.get<NarutoCharacter>(`${this.#url}/${id}`).pipe(
+      tap((response: NarutoCharacter) => this.#setCharacter.set(response)),
+    );
+  }
 }

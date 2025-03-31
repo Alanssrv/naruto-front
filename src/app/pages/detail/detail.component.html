@@ -1,1 +1,45 @@
-<p>detail works!</p>
+<app-header></app-header>
+
+<main>
+    @if (this.character()) {
+        <div class="character">
+            <section class="character__image">
+                <img
+                height="500rem"
+                [src]="this.character()!.images[0].image_url"
+                [alt]="this.character()!.name">
+            </section>
+            <section class="character__status">
+                <h2>{{ this.character()!.name }}</h2>
+                <p>Rank: {{ this.character()!.rank }}</p>
+                <p>Vila: {{ this.character()!.village!.name }}</p>
+                <p>Poder: {{ this.character()!.power }}</p>
+                <p>
+                @if (this.character()!.father) {
+                        <a [routerLink]="['/detail', this.character()!.father?.id]">Pai: {{ this.character()!.father?.name ?? "Não informado" }}</a>
+                    } @else {
+                        Pai: Não informado
+                    }
+                </p>
+                <p>
+                    @if (this.character()!.mother) {
+                        <a [routerLink]="['/detail', this.character()!.mother?.id]">Mãe: {{ this.character()!.mother?.name ?? "Não informado"}}</a><br>
+                    } @else {
+                        Mãe: Não informado
+                    }
+                </p>
+                @if (this.character()!.jutsus!.length > 0) {
+                    <h3>Jutsus:</h3>
+                    @for (item of this.character()!.jutsus; track $index) {
+                        <ul class="character__jutsu">
+                            <li>Nome: {{ item.name }}</li>
+                            <li>Tipo: {{ item.type }}</li>
+                            <li>Descrição: {{ item.description }}</li>
+                        </ul>
+                    }
+                }
+            </section>
+        </div>
+    } 
+    <a class="btn-home" [routerLink]="['/']">Voltar</a>
+</main>
